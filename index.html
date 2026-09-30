@@ -153,6 +153,17 @@ section{padding:96px 0}
 .chips span{font-size:12px;padding:3px 9px;border-radius:999px}
 .chips .ok{background:rgba(134,239,172,.14);color:#86EFAC}
 .chips .no{background:rgba(224,52,79,.2);color:#F3A6B3}
+.v-pipe{background:#16161A;padding:28px}
+.pipe{width:88%;display:flex;flex-direction:column;gap:14px;font-size:14px;color:#FBFAF8}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.flow span{background:#232027;border:1px solid #34303A;border-radius:10px;padding:6px 12px;font-size:13px;font-weight:600}
+.flow i{font-style:normal;font-weight:700;font-size:18px;color:#E0344F}
+.pipe-card{background:#232027;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:9px}
+.pipe-cap{font-size:12px;color:#B7ADA8}
+.bar-row{display:grid;grid-template-columns:104px 1fr 44px;align-items:center;gap:10px;font-size:13px}
+.bar-row .track{height:8px;border-radius:99px;background:#34303A}
+.bar-row .track i{display:block;height:100%;border-radius:99px;background:#E0344F}
+.bar-row b{font-family:var(--display);font-weight:800;text-align:right}
 .v-hc .hc{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:clamp(60px,9vw,120px);color:#7E0C20;letter-spacing:-.05em}
 .skills{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink)}
 .skill{padding:28px 22px 28px 0;border-right:1px solid var(--line)}
@@ -301,6 +312,28 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <p class="lede" data-i18n="work.lede">Projects from Al Akhawayn and since graduating, plus the business I run on the side. Each one links to its code.</p>
     <div class="projects">
 
+      <a class="project wide" href="https://github.com/qskenza/marketing-pipeline">
+        <div class="visual v-pipe" aria-hidden="true">
+          <div class="pipe">
+            <div class="flow"><span>API</span><i>&rarr;</i><span>BigQuery</span><i>&rarr;</i><span>dbt</span><i>&rarr;</i><span>Looker Studio</span></div>
+            <div class="pipe-card">
+              <div class="pipe-cap" data-i18n="pp.cap">Revenue by channel (€)</div>
+              <div class="bar-row"><span>Organic Search</span><div class="track"><i style="width:100%"></i></div><b>74.9K</b></div>
+              <div class="bar-row"><span>Referral</span><div class="track"><i style="width:78%"></i></div><b>58.7K</b></div>
+              <div class="bar-row"><span>Direct</span><div class="track"><i style="width:75%"></i></div><b>56.5K</b></div>
+              <div class="bar-row"><span>Paid Search</span><div class="track"><i style="width:8%"></i></div><b>6.2K</b></div>
+            </div>
+            <div class="chips"><span class="ok" data-i18n="pp.t1">27/27 data tests passed</span><span class="ok" data-i18n="pp.t2">CI passing</span></div>
+          </div>
+        </div>
+        <div class="body">
+          <h3 data-i18n="pp.h">Marketing Performance Pipeline on Google Cloud</h3>
+          <p data-i18n="pp.p">An end-to-end data pipeline on GA4 e&#8209;commerce data (360K sessions): Python ingestion, 8 dbt models in BigQuery checked by 27 data tests, orchestration with Airflow in Docker, and CI/CD with GitHub Actions. It feeds a Looker Studio dashboard showing which marketing channels bring revenue and where shoppers drop off.</p>
+          <ul class="tags"><li>BigQuery</li><li>dbt</li><li>Airflow</li><li>Docker</li><li>GitHub Actions</li></ul>
+          <span class="more" data-i18n="gh">View on GitHub</span>
+        </div>
+      </a>
+
       <a class="project wide" href="https://github.com/qskenza/cv-job-matcher">
         <div class="visual v-match" aria-hidden="true">
           <div class="rank">
@@ -413,8 +446,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="skills">
       <div class="skill"><h3 data-i18n="s1.h">AI &amp; ML</h3><p data-i18n="s1.p">LLM APIs and SDKs (Gemini), structured outputs, embeddings and vector search (FAISS), LLM tracing (Langfuse), NLP, computer vision with DeepFace, generative AI with MusicGen, quantum ML with Qiskit</p></div>
       <div class="skill"><h3>Backend</h3><p data-i18n="s2.p">Python, FastAPI, Pydantic v2, REST APIs, SQLAlchemy, JWT auth, Java and Jakarta EE</p></div>
-      <div class="skill"><h3 data-i18n="s3.h">Data</h3><p data-i18n="s3.p">SQL, Pandas, Apache Spark, Power BI, advanced Excel, SQLite, Firebase</p></div>
-      <div class="skill"><h3 data-i18n="s4.h">Tools</h3><p>Git, Linux, pytest, Streamlit, Power Automate, JavaScript, C</p></div>
+      <div class="skill"><h3 data-i18n="s3.h">Data</h3><p data-i18n="s3.p">SQL, Google Cloud (BigQuery), dbt, Pandas, Apache Spark, Power BI, Looker Studio, advanced Excel, SQLite, Firebase</p></div>
+      <div class="skill"><h3 data-i18n="s4.h">Tools</h3><p>Git, Docker, Apache Airflow, GitHub Actions (CI/CD), Linux, pytest, Streamlit, Power Automate, JavaScript, C</p></div>
     </div>
     <div class="extras">
       <div>
@@ -488,6 +521,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     "x3.b2":"Intégration d'API REST (Dell, HP, EPEAT) pour automatiser la collecte des données environnementales.",
     "work.h":"Mes projets",
     "work.lede":"Une sélection de projets réalisés à Al Akhawayn et depuis mon diplôme, et l'entreprise que je mène en parallèle. Le code de chacun est disponible sur GitHub.",
+    "pp.h":"Pipeline de performance marketing sur Google Cloud",
+    "pp.p":"Un pipeline de données complet, construit sur les données e&#8209;commerce GA4 (360&nbsp;000 sessions) : ingestion en Python, 8 modèles dbt dans BigQuery vérifiés par 27 tests de données, orchestration avec Airflow sous Docker et CI/CD avec GitHub Actions. Il alimente un tableau de bord Looker Studio qui montre quels canaux marketing rapportent le plus et à quelle étape les visiteurs abandonnent leur achat.",
+    "pp.cap":"Chiffre d'affaires par canal (€)",
+    "pp.t1":"27 tests de données sur 27 réussis",
+    "pp.t2":"CI au vert",
     "p0.h":"CV–Job Matcher, matching multilingue par LLM",
     "p0.p":"Analyse des CV et des offres d'emploi en français et en anglais avec Gemini, validés par des modèles Pydantic v2, puis classement des offres par embeddings et FAISS, avec les compétences acquises et manquantes. Chaque appel au LLM est tracé dans Langfuse, avec une démo Streamlit.",
     "c1":"J'ai de la fièvre depuis hier. Est-ce que je peux voir un médecin aujourd'hui ?",
@@ -510,7 +548,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     "s1.h":"IA &amp; ML",
     "s1.p":"API et SDK de LLM (Gemini), sorties structurées, embeddings et recherche vectorielle (FAISS), traçage des LLM (Langfuse), NLP, vision par ordinateur (DeepFace), IA générative (MusicGen), ML quantique (Qiskit)",
     "s2.p":"Python, FastAPI, Pydantic v2, API REST, SQLAlchemy, authentification JWT, Java et Jakarta EE",
-    "s3.h":"Data","s3.p":"SQL, Pandas, Apache Spark, Power BI, Excel avancé, SQLite, Firebase",
+    "s3.h":"Data","s3.p":"SQL, Google Cloud (BigQuery), dbt, Pandas, Apache Spark, Power BI, Looker Studio, Excel avancé, SQLite, Firebase",
     "s4.h":"Outils",
     "ce1":"Elements of AI, Université d'Helsinki &amp; MinnaLearn (2026)",
     "ce2":"NoSQL Systems, UNAM sur Coursera (2024)",
